@@ -12,14 +12,13 @@ def invoice():
     invoice = Invoice()
     return invoice
 
-def test_CanCalculateTotalImpurePrice(products):
-    invoice = Invoice()
+def test_CanCalculateTotalImpurePrice(invoice, products):
     invoice.totalImpurePrice(products)
     assert invoice.totalImpurePrice(products) == 75
 
-def test_CanCalculateTotalDiscountPrice(invoice, products):
+def test_CanCalculateTotalDiscount(invoice, products):
     invoice.totalDiscount(products)
-    assert invoice.totalImpurePrice(products) == 5.62
+    assert invoice.totalDiscount(products) == 5.62
 
 def test_CanCalculateTotalPurePrice(invoice, products):
     invoice.totalPurePrice(products)
